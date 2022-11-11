@@ -1,2 +1,9 @@
-token: ZLd2unA3vicInyAKbKzS
-applicationId: 51471859
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    vk-service: vk-service.queue
+  routing-keys:
+    internal-vk-service: internal.vk-service.routing-key
+server:
+  port: 8081

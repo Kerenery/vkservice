@@ -9,9 +9,10 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-
-    <module>gwlb</module>
     <module>vkhandler</module>
+    <module>shared</module>
+    <module>rabbitmq</module>
+    <module>user</module>
   </modules>
 
 

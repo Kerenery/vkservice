@@ -1,0 +1,19 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: user-service
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/appuser
+    username: kerenery
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  rabbitmq:
+    addresses: localhost:5672
