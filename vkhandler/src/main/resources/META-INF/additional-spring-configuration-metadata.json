@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "vk.app.app-id",
+      "type": "java.lang.Integer",
+      "description": "Description for vk.app.app-id."
+    },
+    {
+      "name": "vk.app.token",
+      "type": "java.lang.String",
+      "description": "Description for vk.app.token."
+    }
+  ] }

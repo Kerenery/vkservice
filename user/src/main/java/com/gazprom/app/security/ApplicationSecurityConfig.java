@@ -22,6 +22,19 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
 
+    private static final String[] AUTH_WHITELIST = {
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/api/v1/users/register",
+    };
+
     @Autowired
     public ApplicationSecurityConfig(PasswordEncoder passwordEncoder,
                                      UserService userService) {
@@ -31,13 +44,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-//                .authorizeRequests()
-//               .antMatchers("/api/v1/**").permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .httpBasic();
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers(AUTH_WHITELIST).permitAll()
+                .antMatchers("/**").authenticated()
+                .and()
+                .httpBasic();
     }
 
     @Override

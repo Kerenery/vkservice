@@ -82,7 +82,6 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isCredentialsNonExpired() {
-        //return credentialsDate.isBefore(LocalDate.now());
         return true;
     }
 
