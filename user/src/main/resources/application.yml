@@ -5,7 +5,7 @@ spring:
     name: user-service
   datasource:
     password: password
-    url: jdbc:postgresql://localhost:5432/appuser
+    url: jdbc:postgresql://postgres:5432/appuser
     username: kerenery
   jpa:
     hibernate:
@@ -16,4 +16,4 @@ spring:
         format_sql: true
     show-sql: true
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672

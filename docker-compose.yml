@@ -35,6 +35,31 @@ services:
       - "15672:15672"
     networks:
       - spring
+  user:
+    image: kerenery/user:latest
+    container_name: user
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  vkhandler:
+    image: kerenery/vkhandler:latest
+    container_name: vkhandler
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - rabbitmq
+      - user
 
 networks:
   postgres:

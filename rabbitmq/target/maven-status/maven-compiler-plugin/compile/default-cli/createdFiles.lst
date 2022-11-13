@@ -1,0 +1,2 @@
+com\gazprom\app\amqp\RabbitMQConfig.class
+com\gazprom\app\amqp\RabbitMQMessageProducer.class

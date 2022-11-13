@@ -2,7 +2,9 @@ vk:
   app:
     token: d168291bd168291bd168291b53d2794ce8dd168d168291bb203e7c0a4489fbe109f14b1
     app-id: 51471859
-
+spring:
+  rabbitmq:
+    addresses: rabbitmq:5672
 rabbitmq:
   exchanges:
     internal: internal.exchange
