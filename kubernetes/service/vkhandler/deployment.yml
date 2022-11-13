@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vkhandler
+  labels:
+    app: vkhandler
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: vkhandler
+      labels:
+        app: vkhandler
+    spec:
+      containers:
+        - name: vkhandler
+          image: kerenery/vkhandler:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: vkhandler
