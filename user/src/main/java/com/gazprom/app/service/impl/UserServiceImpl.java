@@ -75,14 +75,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "appuser", key = "#id")
+    @Cacheable(value = "appuser", key = "#id", unless="#result == null")
     public AppUser getUserById(Long id) throws UserNotFoundException {
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(String.format("User with %s not found", id)));
     }
 
     @Override
-    @CachePut(value = "appuser", key = "#appUser.id")
+    @CachePut(value = "appuser", key = "#appUser.id", unless="#result == null")
     public void updateUser(AppUser appUser) {
         checkUser(appUser);
         AppUser user = userRepository.findByUsername(appUser.getUsername());
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "vkUser", key = "#vkRequest.vkUserId()")
+    @Cacheable(value = "vkUser", key = "#vkRequest.vkUserId()", unless="#result == null")
     public VkUserDto getVkUserById(VkRequest vkRequest) {
         if (vkRequest.vkUserId() == null) {
             throw new IllegalArgumentException("VkId is empty");
@@ -113,7 +113,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "vkUser", key = "#vkRequest.vkUserId()")
+    @Cacheable(value = "vkUser", key = "#vkRequest.vkUserId()", unless="#result == null")
     public VkUserDto getMembership(VkRequest vkRequest) {
         if (vkRequest.vkUserId() == null || vkRequest.groupId() == null) {
             throw new IllegalArgumentException("VkId or groupId id empty: " + vkRequest);

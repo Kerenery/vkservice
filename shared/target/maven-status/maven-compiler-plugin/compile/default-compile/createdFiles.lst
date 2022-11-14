@@ -1,8 +1,0 @@
-com\gazprom\app\dto\VkUserDto.class
-com\gazprom\app\enums\UserRole.class
-com\gazprom\app\request\VkRequest.class
-com\gazprom\app\enums\UserPermission.class
-com\gazprom\app\request\RegistrationPayload.class
-com\gazprom\app\dto\VkUserDto$VkUserDtoBuilder.class
-com\gazprom\app\entity\AppUser$AppUserBuilder.class
-com\gazprom\app\entity\AppUser.class

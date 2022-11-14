@@ -41,6 +41,7 @@ public class UserController {
 
     @PostMapping("register")
     public ResponseEntity<?> addNewUser(@RequestBody RegistrationPayload registrationPayload) throws UserNotFoundException {
-        return new ResponseEntity<>(userService.addUser(registrationPayload),HttpStatus.OK);
+        userService.addUser(registrationPayload);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
